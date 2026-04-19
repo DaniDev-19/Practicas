@@ -2,6 +2,7 @@ import './App.css';
 import { useState } from 'react';
 import Like from './components/Megusta';
 import Card from './components/Card';
+import plancha from "../public/placha.webp"
 function App() {
 
   const [count, setCount]= useState(1); 
@@ -37,25 +38,25 @@ function App() {
       <div className='grilla'>
         <Card 
           title='Plancha Sofisticada'
-          subtitle='../public/placha.webp'
+          subtitle={plancha}
           costo='5$'
           des="Plancha super novedosa"
         />
         <Card 
           title='Plancha Bonita'
-          subtitle='../public/placha.webp'
+          subtitle={plancha}
           costo='2$'
           des="Plancha super novedosa"
         />
         <Card 
           title='Plancha BeBota'
-          subtitle='../public/placha.webp'
+          subtitle={plancha}
           costo='100$'
           des="Plancha super novedosa"
         />
         <Card 
           title='Plancha Chingona'
-          subtitle='../public/placha.webp'
+          subtitle={plancha}
           costo='15$'
           des="Plancha super novedosa"
         />
