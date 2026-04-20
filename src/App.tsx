@@ -1,64 +1,69 @@
 import './App.css';
-import { useState } from 'react';
-import Like from './components/Megusta';
+import { useState, useEffect } from 'react';
+import Like from './components/Multiplication';
 import Card from './components/Card';
 import plancha from "../public/placha.webp"
 function App() {
 
   const [count, setCount]= useState(1); 
 
-  if(count === 0 ) {
-    window.alert("no puedes tener numeros negativos")
-  } else if (count === 10) {
-    window.alert("felicidades llegastes a 10")
-  }
+useEffect(() => {
+    if (count < 0) {
+      alert("No puedes tener números negativos");
+      setCount(0); 
+    } else if (count === 10) {
+      alert("¡Felicidades, llegaste a 10!");
+    }
+  }, [count]);
 
   return (
     <>
       <div className='container'>
         {/* Funcionalidad 1 */}
-        <p>Componente reactivo {count}</p>
-        <button className='btn-1' title='Seteo el' onClick={() => setCount(count + 1)}>Soy Reactivo</button>
+        <p>Componente reactivo <strong>{count}</strong></p>
+        <button className='btn-1' title='Seteo el' onClick={() => setCount(prev => prev + 1)}>Soy Reactivo</button>
 
         {/* Funcionalidad 2 */}
         <p>Reseteame</p>
         <button className='btn-1' onClick={() => setCount(1)}>Reseteame</button>
 
         {/* Funcionalidad 3 */}
-        <p>Restame</p>
-        <button className='btn-1' onClick={() => setCount(count - 2)}>Restar</button>
+        <p>Restame </p>
+        <button className='btn-1' onClick={() => setCount(prev => prev - 2)}>Restar 2</button>
 
+      <div className='grilla'>
         {/* Componente 2*/}
         <Like />
 
         {/* Componente 2  */}
         <Like></Like>
+      </div>
 
         {/* Grilla de cartas */}
       <div className='grilla'>
         <Card 
           title='Plancha Sofisticada'
-          subtitle={plancha}
+          imageUrl={plancha}
           costo='5$'
-          des="Plancha super novedosa"
+          des=" Lorem, ipsum dolor sit amet consectetur adipisicing elit. Magni, dolores."
         />
         <Card 
           title='Plancha Bonita'
-          subtitle={plancha}
+          imageUrl={plancha}
           costo='2$'
-          des="Plancha super novedosa"
+          des=" Lorem, ipsum dolor sit amet consectetur adipisicing elit. Magni, dolores."
         />
         <Card 
           title='Plancha BeBota'
-          subtitle={plancha}
+          imageUrl={plancha}
           costo='100$'
-          des="Plancha super novedosa"
+          des=" Lorem, ipsum dolor sit amet consectetur adipisicing elit. Magni, dolores."
         />
         <Card 
           title='Plancha Chingona'
-          subtitle={plancha}
+          imageUrl={plancha}
           costo='15$'
-          des="Plancha super novedosa"
+          des=" Lorem, ipsum dolor sit amet consectetur adipisicing elit. Magni, dolores."
         />
       </div>
         

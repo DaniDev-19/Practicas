@@ -1,4 +1,4 @@
-import Styles from "../styles/like.module.css";
+import Styles from "../styles/multiplicacion.module.css";
 
 function Like ({count="multiplicación", mult=2}) {
 
@@ -8,7 +8,12 @@ function Like ({count="multiplicación", mult=2}) {
 
     for (let i = 0; i < 11; i++) {
         const resultado = i * calculo;
-        filas.push(<li key={i}>{i} x {calculo} = {resultado}</li>);
+        filas.push(
+        <li key={i}>
+            <span>{i} × {calculo}</span>
+            <span>= {resultado}</span>
+        </li>
+    );
     }
 
     return (
@@ -16,7 +21,7 @@ function Like ({count="multiplicación", mult=2}) {
             <h1>{count}</h1>
 
             <ul>
-                <li>{filas}</li>
+                {filas}
             </ul>
         </div>
     );
