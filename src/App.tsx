@@ -4,6 +4,8 @@ import Like from "./components/Multiplication";
 import Card from "./components/Card";
 import Contador from "./components/Contador";
 import plancha from "../public/placha.webp";
+import Buscador from "./components/Buscador";
+
 function App() {
   const [count, setCount] = useState(1);
 
@@ -86,6 +88,11 @@ function App() {
             des=" Lorem, ipsum dolor sit amet consectetur adipisicing elit. Magni, dolores."
           />
         </div>
+      </div>
+
+      {/* Buscador de usuarios */}
+      <div className="container">
+        <Buscador/>
       </div>
     </>
   );

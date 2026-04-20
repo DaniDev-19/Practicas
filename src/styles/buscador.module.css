@@ -1,0 +1,78 @@
+.container {
+  max-width: 500px;
+  margin: 2rem auto;
+  padding: 20px;
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+  font-family: 'Inter', sans-serif;
+}
+
+.inputBusqueda {
+  width: 100%;
+  padding: 12px 20px;
+  font-size: 1rem;
+  border: 2px solid #edf2f7;
+  border-radius: 12px;
+  outline: none;
+  transition: all 0.3s ease;
+  box-sizing: border-box;
+  margin-bottom: 20px;
+  color: #2d3748;
+}
+
+.inputBusqueda:focus {
+  border-color: #4f46e5;
+  box-shadow: 0 0 0 4px rgba(79, 70, 229, 0.1);
+}
+
+.inputBusqueda::placeholder {
+  color: #a0aec0;
+}
+
+.lista {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  max-height: 400px;
+  overflow-y: auto; 
+}
+
+.itemUsuario {
+  padding: 12px 16px;
+  border-bottom: 1px solid #f7fafc;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  transition: background 0.2s ease;
+  color: #4a5568;
+  font-weight: 500;
+}
+
+.itemUsuario:last-child {
+  border-bottom: none;
+}
+
+.itemUsuario:hover {
+  background-color: #f8fafc;
+  color: #4f46e5;
+  cursor: default;
+}
+
+.itemUsuario::before {
+  content: '';
+  width: 8px;
+  height: 8px;
+  background-color: #cbd5e0;
+  border-radius: 50%;
+  transition: background 0.2s ease;
+}
+
+.itemUsuario:hover::before {
+  background-color: #4f46e5;
+}
+
+.noResultados {
+  text-align: center;
+  color: #a0aec0;
+}
