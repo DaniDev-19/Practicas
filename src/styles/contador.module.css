@@ -1,0 +1,61 @@
+.container {
+  background: #1e1e2e;
+  padding: 2rem;
+  border-radius: 20px;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  max-width: 300px;
+  margin: 2rem auto;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.title {
+  color: #89b4fa;
+  font-size: 1.2rem;
+  margin-bottom: 1.5rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.display {
+  background: #11111b;
+  color: #fab387; 
+  font-size: 3.5rem;
+  font-weight: bold;
+  padding: 1rem;
+  border-radius: 12px;
+  margin-bottom: 2rem;
+  box-shadow: inset 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+.buttonGroup {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.btn {
+  padding: 12px 20px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 1.1rem;
+  transition: all 0.2s ease;
+  color: #cdd6f4;
+}
+
+.btnMinus { background-color: #f38ba8; color: #11111b; }
+.btnReset { background-color: #45475a; }
+.btnPlus  { background-color: #a6e3a1; color: #11111b; }
+
+.btn:hover {
+  transform: translateY(-3px);
+  filter: brightness(1.1);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.btn:active {
+  transform: translateY(0);
+}
