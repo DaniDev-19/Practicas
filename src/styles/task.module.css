@@ -1,0 +1,63 @@
+.campo {
+    width: 100%;
+    border-radius: 15px;
+    padding: 10px 5px;
+    background: #ffffff10;
+    border: 1px solid #ffffff;
+    outline: none;
+    color: rgb(255, 255, 255);
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    font-style: italic;
+}
+
+::placeholder {
+    color: rgb(255, 255, 255);
+    font-weight: 600;
+}
+
+.seccionOne {
+    margin: 10px;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.btntask {
+    background: rgba(125, 168, 248, 0.933);
+    border-radius: 20px;
+    padding: 5px 10px;
+    color: #ffffff;
+    font-weight: 700;
+    cursor: pointer;
+    border: none;
+}
+
+.list {
+    list-style: none;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    overflow: hidden;
+}
+
+/* .seccionTwo {
+    margin: 10px;
+    padding: 20px;
+    display: flex;
+    align-items: end;
+    justify-content: flex-end;
+} */
+
+.btntaskk {
+    background: rgba(255, 77, 77, 0.735);
+    border-radius: 20px;
+    padding: 5px 10px;
+    color: #ffffff;
+    font-weight: 700;
+    cursor: pointer;
+    border: none;
+    margin-left: 20px;
+}

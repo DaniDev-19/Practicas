@@ -5,6 +5,8 @@ import Card from "./components/Card";
 import Contador from "./components/Contador";
 import plancha from "../public/placha.webp";
 import Buscador from "./components/Buscador";
+import Prueba from "./components/Contador2";
+import Task from "./components/Task";
 
 function App() {
   const [count, setCount] = useState(1);
@@ -94,6 +96,18 @@ function App() {
       <div className="container">
         <Buscador/>
       </div>
+
+      {/* Estado con texto */}
+      <div className="container">
+        <Prueba/>
+      </div>
+
+        {/* Gestor de tareas */}
+        <div className="container">
+          <div className="grillaa">
+            <Task/>
+          </div>
+        </div>
     </>
   );
 }

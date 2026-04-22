@@ -2,6 +2,7 @@ import { useEffect, useMemo, useState } from "react";
 import Styles from "../styles/buscador.module.css";
 
 function Buscador() {
+  
   interface Usuarios {
     id: number;
     name: string;
