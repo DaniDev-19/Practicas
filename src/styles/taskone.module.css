@@ -1,0 +1,139 @@
+.container {
+  max-width: 420px;
+  margin: 40px auto;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.1);
+  padding: 32px 24px 24px 24px;
+  font-family: "Segoe UI", Arial, sans-serif;
+}
+.title {
+  text-align: center;
+  color: #3a3a3a;
+  margin-bottom: 24px;
+  font-size: 2rem;
+  font-weight: 700;
+}
+.inputSection {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+.input {
+  flex: 1;
+  padding: 8px 12px;
+  border: 1px solid #bdbdbd;
+  border-radius: 6px;
+  font-size: 1rem;
+  outline: none;
+  transition: border 0.2s;
+}
+.input:focus {
+  border: 1.5px solid #1976d2;
+}
+.addBtn {
+  background: #1976d2;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 8px 16px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.addBtn:hover {
+  background: #125ea2;
+}
+.error {
+  color: #d32f2f;
+  background: #ffeaea;
+  border-radius: 4px;
+  padding: 6px 10px;
+  margin-bottom: 10px;
+  font-size: 0.98rem;
+}
+.list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.empty {
+  color: #888;
+  text-align: center;
+  padding: 18px 0 0 0;
+}
+.listItem {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 0;
+  border-bottom: 1px solid #f0f0f0;
+}
+.taskText {
+  flex: 1;
+  font-size: 1.08rem;
+  color: #333;
+}
+.editInput {
+  flex: 1;
+  padding: 7px 10px;
+  border: 1px solid #bdbdbd;
+  border-radius: 6px;
+  font-size: 1rem;
+}
+.saveBtn {
+  background: #43a047;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 7px 12px;
+  font-size: 0.98rem;
+  cursor: pointer;
+  margin-left: 2px;
+  transition: background 0.2s;
+}
+.saveBtn:hover {
+  background: #357a38;
+}
+.cancelBtn {
+  background: #bdbdbd;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 7px 12px;
+  font-size: 0.98rem;
+  cursor: pointer;
+  margin-left: 2px;
+  transition: background 0.2s;
+}
+.cancelBtn:hover {
+  background: #888;
+}
+.editBtn {
+  background: #ffa000;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 7px 12px;
+  font-size: 0.98rem;
+  cursor: pointer;
+  margin-left: 2px;
+  transition: background 0.2s;
+}
+.editBtn:hover {
+  background: #c67100;
+}
+.deleteBtn {
+  background: #d32f2f;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 7px 12px;
+  font-size: 0.98rem;
+  cursor: pointer;
+  margin-left: 2px;
+  transition: background 0.2s;
+}
+.deleteBtn:hover {
+  background: #a31515;
+}

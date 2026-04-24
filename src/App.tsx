@@ -7,6 +7,8 @@ import plancha from "../public/placha.webp";
 import Buscador from "./components/Buscador";
 import Prueba from "./components/Contador2";
 import Task from "./components/Task";
+import TaskOne from "./components/TaskOne";
+import Request from "./components/Request";
 
 function App() {
   const [count, setCount] = useState(1);
@@ -107,6 +109,17 @@ function App() {
           <div className="grillaa">
             <Task/>
           </div>
+        </div>
+
+         {/* Gestor de tareas */}
+        <div className="container">
+          <div className="grillaa">
+            <TaskOne/>
+          </div>
+        </div>
+
+        <div className="container">
+                <Request></Request>
         </div>
     </>
   );

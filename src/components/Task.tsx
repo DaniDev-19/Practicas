@@ -1,10 +1,10 @@
 import { useState, useEffect } from "react";
 import Style from '../styles/task.module.css';
 
+
 function Task () {
     const LOCAL_STORAGE = "tareas";
     const [inputValue, setInputValue] = useState<string>("");
-    
 
     const [tasks, setTasks] = useState<string[]>(() => {
         const guardado = localStorage.getItem(LOCAL_STORAGE);
