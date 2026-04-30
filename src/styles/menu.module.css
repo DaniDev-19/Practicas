@@ -1,0 +1,131 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 20px;
+    background-color: #121212; 
+    min-height: 100vh;
+    font-family: 'Inter', 'Roboto', sans-serif;
+}
+
+.formulario {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 500px;
+    gap: 15px;
+    background: #1e1e1e;
+    padding: 25px;
+    border-radius: 8px;
+    border: 1px solid #333;
+}
+
+.formulario div {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.formulario label {
+    font-size: 0.75rem;
+    color: #b0b0b0;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 600;
+    cursor: pointer;
+    text-align: center;
+}
+
+.formulario input, 
+.formulario textarea {
+    border: 1px solid #333;
+    outline: none;
+    border-radius: 5px;
+    padding: 10px 12px;
+    background: #252525;
+    color: #ffffff;
+    font-size: 0.9rem;
+    transition: all 0.3s ease-in-out;
+}
+
+.formulario textarea {
+    min-height: 80px;
+    resize: none; 
+}
+
+.formulario input:focus, 
+.formulario textarea:focus {
+    border-color: #43239ddc; 
+    background: #2a2a2a;
+    box-shadow: 0 0 10px rgba(68, 46, 238, 0.488);
+}
+
+.btnContainer {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 10px;
+}
+
+.btnCreate {
+    background: #ffffffe3;
+    color: #000000;
+    padding: 10px 24px;
+    border-radius: 4px;
+    font-weight: 700;
+    border: none;
+    cursor: pointer;
+    transition: opacity 0.2s;
+}
+
+.btnCreate:hover {
+    background: #e0e0e0;
+}
+
+/* Estilos de la Tabla */
+.tableMenu {
+    width: 100%;
+    max-width: 900px;
+    margin-top: 40px;
+    border-collapse: collapse;
+    background: #1e1e1e;
+    border-radius: 8px;
+    overflow: hidden; 
+    border: 1px solid #333;
+}
+
+.tableMenu th {
+    background: #252525;
+    color: #ffffff;
+    text-align: left;
+    padding: 15px;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    border-bottom: 2px solid #333;
+}
+
+.tableMenu td {
+    padding: 15px;
+    color: #dcdcdc;
+    border-bottom: 1px solid #2a2a2a;
+    font-size: 0.95rem;
+}
+
+.tableMenu tr:hover {
+    background: #252525; 
+}
+
+.btnDelete {
+    background: transparent;
+    color: #ff5252;
+    border: 1px solid #ff5252;
+    padding: 5px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.8rem;
+    transition: all 0.2s;
+}
+
+.btnDelete:hover {
+    background: #ff5252;
+    color: white;
+}

@@ -9,6 +9,8 @@ import Prueba from "./components/Contador2";
 import Task from "./components/Task";
 import TaskOne from "./components/TaskOne";
 import Request from "./components/Request";
+import Prueba2 from "./components/Prueba";
+import Menu from "./components/menu";
 
 function App() {
   const [count, setCount] = useState(1);
@@ -120,6 +122,18 @@ function App() {
 
         <div className="container">
                 <Request></Request>
+        </div>
+
+        <div className="container">
+          <Prueba2 
+            title = "hola" 
+            paragraf = "loremasdasdasdasd"
+          />
+        </div>
+
+        <div className="container">
+          <Menu
+          />
         </div>
     </>
   );
