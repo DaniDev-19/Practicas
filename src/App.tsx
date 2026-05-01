@@ -11,6 +11,7 @@ import TaskOne from "./components/TaskOne";
 import Request from "./components/Request";
 import Prueba2 from "./components/Prueba";
 import Menu from "./components/menu";
+import CRUD from "./components/Crud";
 
 function App() {
   const [count, setCount] = useState(1);
@@ -134,6 +135,9 @@ function App() {
         <div className="container">
           <Menu
           />
+        </div>
+        <div className="container">
+          <CRUD/>
         </div>
     </>
   );
