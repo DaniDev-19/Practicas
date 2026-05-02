@@ -1,0 +1,41 @@
+{
+    "footer": {
+        "title": "Aprende React",
+        "description": "Comprende y Documenta tu progreso con prácticas paso a paso",
+        "link": [
+            { "title": "Inicio", "to": "/" },
+            { "title": "Prácticas", "to": "/practicas" },
+            { "title": "Hooks", "to": "/hooks" },
+            { "title": "Request", "to": "/request" },
+            { "title": "Componentes", "to": "/componentes" }
+        ],
+        "url": [
+            { "title": "React", "url": "https://react.dev/" },
+            { "title": "Vite", "url": "https://vitejs.dev/" },
+            { "title": "Node", "url": "https://nodejs.org/" },
+            { "title": "Npm", "url": "https://www.npmjs.com/" }
+        ],
+        "icon": [
+            {
+                "title": "GitHub",
+                "url": "https://github.com/tuusuario",
+                "icon": "FaGithub"
+            },
+            {
+                "title": "LinkedIn",
+                "url": "https://linkedin.com/in/tuusuario",
+                "icon": "FaLinkedin"
+            },
+            {
+                "title": "React",
+                "url": "https://react.dev/",
+                "icon": "FaReact"
+            },
+            {
+                "title": "Web",
+                "url": "https://tusitio.dev/",
+                "icon": "FaGlobe"
+            }
+        ]
+    }
+}

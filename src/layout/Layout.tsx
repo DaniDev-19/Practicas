@@ -1,12 +1,15 @@
 import Header from '../components/Header.tsx';
 import Footer from '../components/Footer.tsx';
+import { Outlet } from 'react-router-dom';
+import '../App.css'
 
-function Layout ({ children }: { children: React.ReactNode }) {
+
+function Layout () {
     return (
         <>
             <Header/>
-            <main className='layout'>
-                {children}
+            <main className='container'>
+                <Outlet />
             </main>
             <Footer/>
         </>
