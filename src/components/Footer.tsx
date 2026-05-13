@@ -15,11 +15,12 @@ function Footer () {
     
     return (    
         <footer className={style.footer}>
-            <div>
+            <div className={style.izquierda}>
                 <img src="" alt="" />
-                <h1>{title}</h1>
+                <h1 className={style.title}>{title}</h1>
                 <span>{description}</span>
             </div>
+            <hr />
             <div>
                 <h4>Apartados</h4>
                 <ul>
@@ -30,6 +31,7 @@ function Footer () {
                     ))}
                 </ul>
             </div>
+            <hr />
             <div>
                 <h4>React Vinculos</h4>
                 <ul>
@@ -40,13 +42,16 @@ function Footer () {
                     ))}
                 </ul>
             </div>
-            <div>
+            <hr />
+            <div className={style.iconos}>
                 <h4>Tecnología y Contacto</h4>
-                {icon.map((item) => (
+                <div className={style.filaIconos}>
+                    {icon.map((item) => (
                     <a key={item.title} href={item.url} target="_blank" rel="noopener noreferrer">
-                    {iconMap[item.icon as keyof typeof iconMap]}
+                        {iconMap[item.icon as keyof typeof iconMap]}
                     </a>
-                ))}
+                    ))}
+                </div>
             </div>
         </footer>
 
