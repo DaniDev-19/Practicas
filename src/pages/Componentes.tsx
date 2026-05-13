@@ -158,11 +158,11 @@ export default function Componentes() {
               value={selectVal}
               onChange={setSelectVal}
               options={[
-                { value: 'react',   label: '⚛️  React' },
-                { value: 'vue',     label: '💚 Vue.js' },
-                { value: 'angular', label: '🔴 Angular' },
-                { value: 'svelte',  label: '🟠 Svelte' },
-                { value: 'solid',   label: '🔵 SolidJS' },
+                { value: 'react',   label: 'React' },
+                { value: 'vue',     label: 'Vue.js' },
+                { value: 'angular', label: 'Angular' },
+                { value: 'svelte',  label: 'Svelte' },
+                { value: 'solid',   label: 'SolidJS' },
               ]}
             />
             {selectVal && (
@@ -254,10 +254,10 @@ export default function Componentes() {
           description="El efecto glassmorphism se logra con backdrop-filter: blur() sobre un fondo semitransparente. La clase .glass-panel en index.css encapsula esta técnica. Compatible con Chrome, Edge y Safari (con prefijo -webkit-)."
         >
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '1rem' }}>
-            {['💎 Glass 1', '🔮 Glass 2', '✨ Glass 3'].map((t, i) => (
+            {['Glass A', 'Glass B', 'Glass C'].map((t, i) => (
               <div key={i} className="glass-panel" style={{ padding: '2rem', textAlign: 'center', background: `rgba(${99 + i * 40},102,241,0.08)` }}>
-                <div style={{ fontSize: '2rem', marginBottom: '0.5rem' }}>{t.split(' ')[0]}</div>
-                <span style={{ color: 'var(--text-secondary)', fontSize: '0.9rem' }}>{t.split(' ')[1]}</span>
+                <div style={{ fontSize: '1.2rem', fontWeight: 600, color: 'var(--accent-primary)', marginBottom: '0.5rem' }}>{t}</div>
+                <span style={{ color: 'var(--text-secondary)', fontSize: '0.9rem' }}>Efecto traslúcido</span>
               </div>
             ))}
           </div>

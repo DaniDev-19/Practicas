@@ -1,0 +1,205 @@
+/* ============================================================
+   pages.css — Estilos compartidos entre páginas de contenido
+   Importado individualmente por cada página que lo necesite.
+   ============================================================ */
+
+/* ── Demo block (contenedor visual para demostraciones) ──── */
+.demo-block {
+  background: var(--bg-primary);
+  border: 1px solid var(--border-glass);
+  border-radius: var(--radius-md);
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.demo-block--row {
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: flex-start;
+}
+
+/* ── Stat display (número grande centrado) ───────────────── */
+.stat-display {
+  font-size: 4rem;
+  font-weight: 700;
+  font-family: var(--font-code);
+  transition: color var(--transition-base);
+  line-height: 1;
+}
+
+.stat-display--neutral { color: var(--text-secondary); }
+.stat-display--positive { color: var(--accent-success); }
+.stat-display--negative { color: var(--accent-danger); }
+
+/* ── Reloj ───────────────────────────────────────────────── */
+.clock-time {
+  font-size: 3rem;
+  font-weight: 700;
+  font-family: var(--font-code);
+  transition: color var(--transition-base);
+}
+
+.clock-time--running  { color: var(--text-primary); }
+.clock-time--paused   { color: var(--text-secondary); }
+
+.clock-date {
+  color: var(--accent-primary);
+  font-weight: 500;
+  font-size: 0.95rem;
+}
+
+/* ── Tabla de multiplicar ────────────────────────────────── */
+.mult-controls {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  min-width: 180px;
+}
+
+.mult-controls label {
+  color: var(--text-secondary);
+  font-size: 0.88rem;
+}
+
+.mult-controls input[type="range"] {
+  accent-color: var(--accent-primary);
+  width: 100%;
+}
+
+.mult-big-number {
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--accent-primary);
+  font-family: var(--font-code);
+}
+
+.mult-table {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  flex: 1;
+}
+
+.mult-table__row {
+  display: flex;
+  justify-content: space-between;
+  padding: 5px 12px;
+  border-radius: var(--radius-xs);
+  background: var(--bg-primary);
+  font-family: var(--font-code);
+  font-size: 0.88rem;
+  border: 1px solid var(--border-subtle);
+}
+
+.mult-table__op     { color: var(--text-secondary); }
+.mult-table__result { color: var(--accent-primary); font-weight: 600; }
+
+/* ── Home hero ───────────────────────────────────────────── */
+.home-hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  padding: 2rem 2.5rem;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-glass);
+  border-radius: var(--radius-xl);
+  margin-bottom: 2.5rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.home-hero::after {
+  content: '';
+  position: absolute;
+  top: -40px;
+  right: -40px;
+  width: 180px;
+  height: 180px;
+  background: radial-gradient(circle, rgba(99,102,241,0.12) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.home-hero__body h2 {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.home-hero__body p {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  line-height: 1.7;
+  max-width: 440px;
+  margin-bottom: 1.5rem;
+}
+
+.home-hero__icon {
+  font-size: 7rem;
+  color: var(--accent-primary);
+  opacity: 0.15;
+  flex-shrink: 0;
+  line-height: 1;
+}
+
+/* ── Home navigation cards ───────────────────────────────── */
+.home-nav-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.25rem;
+}
+
+.home-nav-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  padding: 1.5rem;
+  border-radius: var(--radius-lg);
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-glass);
+  transition: transform var(--transition-base), border-color var(--transition-base), box-shadow var(--transition-base);
+  cursor: pointer;
+}
+
+.home-nav-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(99, 102, 241, 0.25);
+  box-shadow: var(--shadow-glow);
+}
+
+.home-nav-card__icon {
+  font-size: 2rem;
+  line-height: 1;
+  margin-bottom: 0.25rem;
+}
+
+.home-nav-card__title {
+  font-size: 1.05rem;
+  font-weight: 600;
+}
+
+.home-nav-card__desc {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+/* ── Inline stack de botones ─────────────────────────────── */
+.btn-group {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+/* ── Spinner animación (usada desde btn-primary con icon) ── */
+@keyframes spin-icon {
+  to { transform: rotate(360deg); }
+}
+
+.spin { animation: spin-icon 1.5s linear infinite; }

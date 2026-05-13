@@ -1,21 +1,22 @@
 /**
  * Hooks.tsx
- * Galería de prácticas con React Hooks.
- * Cada hook se muestra en un ShowcaseCard con descripción técnica y demo interactiva.
+ * Galería de demos interactivas de los hooks más importantes de React.
+ * Cada demo vive en un ShowcaseCard con descripción técnica.
  */
 
 import { useState, useEffect, useMemo } from 'react';
 import { FiPlus, FiMinus, FiRefreshCw } from 'react-icons/fi';
 
 import ShowcaseCard from '../components/ui/ShowcaseCard';
-import Contador from '../components/Contador';
+import Contador  from '../components/Contador';
 import Contador2 from '../components/Contador2';
+import '../styles/pages.css';
 
 export default function Hooks() {
   // ── useState ──
   const [count, setCount] = useState(0);
 
-  // ── useEffect ──
+  // ── useEffect (reloj) ──
   const [time, setTime] = useState(new Date());
   const [isRunning, setIsRunning] = useState(true);
 
@@ -25,35 +26,64 @@ export default function Hooks() {
     return () => clearInterval(id);
   }, [isRunning]);
 
-  // ── useMemo ──
+  // ── useMemo (tabla) ──
   const [numMemo, setNumMemo] = useState(1);
-  const tabla = useMemo(() => {
-    return Array.from({ length: 10 }, (_, i) => ({ factor: i + 1, result: numMemo * (i + 1) }));
-  }, [numMemo]);
+  const tabla = useMemo(
+    () => Array.from({ length: 10 }, (_, i) => ({ factor: i + 1, result: numMemo * (i + 1) })),
+    [numMemo],
+  );
+
+  // ── Color del contador ──
+  const countColor =
+    count === 0 ? 'stat-display--neutral'
+    : count > 0 ? 'stat-display--positive'
+    : 'stat-display--negative';
 
   return (
-    <div className="page-container">
+    <div className="page-container animate-fade-in">
       <header className="page-header">
         <h1 className="page-title">React <span className="text-gradient">Hooks</span></h1>
-        <p className="page-description">Domina el estado y ciclo de vida con los hooks más importantes de React.</p>
+        <p className="page-description">
+          Domina el estado y ciclo de vida con los hooks más importantes de React.
+        </p>
       </header>
 
-      <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
+      <div className="flex-col gap-lg">
 
         {/* ── useState ── */}
         <ShowcaseCard
           title="useState — Contador básico"
           badge="useState"
-          description="El hook useState devuelve un par [valor, setter]. Cada llamada al setter provoca un re-render del componente con el nuevo valor. Aquí el contador cambia de color según si es positivo (verde), negativo (rojo) o cero (gris)."
+          description="El hook useState devuelve un par [valor, setter]. Cada llamada al setter provoca un re-render. El contador cambia de color según el signo: verde (positivo), rojo (negativo), gris (cero)."
         >
-          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', background: 'var(--bg-primary)', padding: '2rem', borderRadius: '12px', border: '1px solid var(--border-glass)' }}>
-            <div style={{ fontSize: '4rem', fontWeight: 'bold', fontFamily: 'monospace', marginBottom: '1.5rem', transition: 'color 0.3s', color: count === 0 ? 'var(--text-secondary)' : count > 0 ? '#10b981' : '#ef4444' }}>
+          <div className="demo-block">
+            <output className={`stat-display ${countColor}`} aria-live="polite">
               {count}
-            </div>
-            <div style={{ display: 'flex', gap: '1rem' }}>
-              <button onClick={() => setCount(c => c - 1)} className="btn-primary" style={{ background: '#ef4444', padding: '12px' }}><FiMinus /></button>
-              <button onClick={() => setCount(0)} className="btn-primary" style={{ background: 'var(--bg-secondary)', border: '1px solid var(--border-glass)', color: 'var(--text-primary)', padding: '12px 24px' }}>Reset</button>
-              <button onClick={() => setCount(c => c + 1)} className="btn-primary" style={{ background: '#10b981', padding: '12px' }}><FiPlus /></button>
+            </output>
+            <div className="btn-group" role="group" aria-label="Controles del contador">
+              <button
+                onClick={() => setCount(c => c - 1)}
+                className="btn-primary"
+                style={{ background: 'var(--accent-danger)' }}
+                aria-label="Decrementar"
+              >
+                <FiMinus />
+              </button>
+              <button
+                onClick={() => setCount(0)}
+                className="btn-ghost btn"
+                aria-label="Resetear a cero"
+              >
+                Reset
+              </button>
+              <button
+                onClick={() => setCount(c => c + 1)}
+                className="btn-primary"
+                style={{ background: 'var(--accent-success)' }}
+                aria-label="Incrementar"
+              >
+                <FiPlus />
+              </button>
             </div>
           </div>
         </ShowcaseCard>
@@ -63,17 +93,28 @@ export default function Hooks() {
           title="useEffect — Reloj en tiempo real"
           badge="useEffect"
           badgeColor="#a855f7"
-          description="useEffect recibe una función de efecto y un array de dependencias. Cuando isRunning es true, crea un setInterval y actualiza el estado cada segundo. La función de limpieza (return) cancela el intervalo para evitar memory leaks."
+          description="useEffect recibe una función de efecto y un array de dependencias. Crea un setInterval cuando isRunning es true. La función de limpieza (return) cancela el intervalo para evitar memory leaks al desmontar."
         >
-          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', background: 'var(--bg-primary)', padding: '2rem', borderRadius: '12px', border: '1px solid var(--border-glass)' }}>
-            <div style={{ fontSize: '3rem', fontWeight: 'bold', fontFamily: 'monospace', color: isRunning ? 'var(--text-primary)' : 'var(--text-secondary)', marginBottom: '0.5rem', transition: 'color 0.3s' }}>
-              {time.toLocaleTimeString()}
+          <div className="demo-block">
+            <div>
+              <p
+                className={`clock-time ${isRunning ? 'clock-time--running' : 'clock-time--paused'}`}
+                aria-live="polite"
+                aria-label="Hora actual"
+              >
+                {time.toLocaleTimeString()}
+              </p>
+              <p className="clock-date text-center">
+                {time.toLocaleDateString(undefined, { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })}
+              </p>
             </div>
-            <div style={{ color: 'var(--accent-primary)', fontWeight: 500, marginBottom: '2rem' }}>
-              {time.toLocaleDateString(undefined, { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })}
-            </div>
-            <button onClick={() => setIsRunning(r => !r)} className="btn-primary" style={{ display: 'flex', alignItems: 'center', gap: '8px', background: isRunning ? '#ef4444' : '#10b981' }}>
-              <FiRefreshCw style={{ animation: isRunning ? 'spin-ring 2s linear infinite' : 'none' }} />
+            <button
+              onClick={() => setIsRunning(r => !r)}
+              className="btn-primary"
+              style={{ background: isRunning ? 'var(--accent-danger)' : 'var(--accent-success)' }}
+              aria-label={isRunning ? 'Detener reloj' : 'Reanudar reloj'}
+            >
+              <FiRefreshCw className={isRunning ? 'spin' : ''} />
               {isRunning ? 'Detener' : 'Reanudar'}
             </button>
           </div>
@@ -81,48 +122,52 @@ export default function Hooks() {
 
         {/* ── useMemo ── */}
         <ShowcaseCard
-          title="useMemo — Tabla de multiplicar calculada"
+          title="useMemo — Tabla de multiplicar"
           badge="useMemo"
           badgeColor="#f59e0b"
-          description="useMemo memoriza el resultado de una función costosa. Solo recalcula el valor cuando cambian las dependencias (aquí, numMemo). Ideal para transformaciones de datos como filtros, ordenaciones o cálculos matemáticos que no deberían repetirse en cada render."
+          description="useMemo memoriza el resultado de una función costosa. Solo la recalcula cuando cambian las dependencias (aquí, numMemo). Ideal para filtros, ordenaciones o cálculos que no deben repetirse en cada render."
         >
-          <div style={{ display: 'flex', gap: '1.5rem', flexWrap: 'wrap' }}>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem', minWidth: '200px' }}>
-              <label style={{ color: 'var(--text-secondary)', fontSize: '0.9rem' }}>Selecciona el número (1–12)</label>
+          <div className="demo-block demo-block--row" style={{ gap: '2rem' }}>
+            <div className="mult-controls">
+              <label htmlFor="mult-range">Número (1–12)</label>
               <input
-                type="range" min={1} max={12} value={numMemo}
+                id="mult-range"
+                type="range"
+                min={1}
+                max={12}
+                value={numMemo}
                 onChange={e => setNumMemo(Number(e.target.value))}
-                style={{ accentColor: 'var(--accent-primary)' }}
               />
-              <div style={{ textAlign: 'center', fontSize: '2.5rem', fontWeight: 'bold', color: 'var(--accent-primary)' }}>{numMemo}</div>
+              <p className="mult-big-number" aria-live="polite">{numMemo}</p>
             </div>
-            <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '4px', flex: 1 }}>
+
+            <ul className="mult-table" aria-label={`Tabla del ${numMemo}`}>
               {tabla.map(({ factor, result }) => (
-                <li key={factor} style={{ display: 'flex', justifyContent: 'space-between', padding: '4px 12px', borderRadius: '6px', background: 'var(--bg-primary)', fontSize: '0.9rem', fontFamily: 'monospace' }}>
-                  <span style={{ color: 'var(--text-secondary)' }}>{numMemo} × {factor}</span>
-                  <span style={{ color: 'var(--accent-primary)', fontWeight: 600 }}>{result}</span>
+                <li key={factor} className="mult-table__row">
+                  <span className="mult-table__op">{numMemo} × {factor}</span>
+                  <span className="mult-table__result">{result}</span>
                 </li>
               ))}
             </ul>
           </div>
         </ShowcaseCard>
 
-        {/* ── Contador con localStorage (componente del usuario) ── */}
+        {/* ── Contador.tsx (usuario) ── */}
         <ShowcaseCard
           title="Contador.tsx — Persistencia con localStorage"
           badge="Tu código"
           badgeColor="#10b981"
-          description="Este componente usa useState con función inicializadora: lee el valor guardado en localStorage al montarse. Luego, useEffect sincroniza cada cambio del contador con el storage. Así el valor persiste aunque se recargue la página."
+          description="Usa useState con función inicializadora para leer el valor guardado en localStorage al montarse. Un useEffect sincroniza cada cambio con el storage, haciendo que el valor persista tras recargar la página."
         >
           <Contador />
         </ShowcaseCard>
 
-        {/* ── Contador2 (componente del usuario) ── */}
+        {/* ── Contador2.tsx (usuario) ── */}
         <ShowcaseCard
           title="Contador2.tsx — Estado tipo string"
           badge="Tu código"
           badgeColor="#10b981"
-          description="Muestra que useState no se limita a números: aquí el estado es un string. Un botón lo establece en 'yuli' y otro lo resetea a cadena vacía. Es un ejemplo simple pero válido del concepto de toggle de estado con strings."
+          description="Demuestra que useState no se limita a números: aquí el estado es un string. Un botón lo fija en 'yuli' y otro lo resetea a cadena vacía — un ejemplo claro de toggle de estado con strings."
         >
           <Contador2 />
         </ShowcaseCard>

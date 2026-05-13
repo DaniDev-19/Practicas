@@ -1,62 +1,69 @@
 import { NavLink, Outlet } from 'react-router-dom';
-import { FiHome, FiBox, FiCode, FiActivity, FiGlobe } from 'react-icons/fi';
+import {
+  FiHome, FiBox, FiCode, FiActivity,
+  FiGlobe, FiBookOpen, FiList, FiAward
+} from 'react-icons/fi';
 import '../index.css';
 import './Layout.css';
 
-function Layout() {
+const NAV_LINKS = [
+  { to: '/',           icon: FiHome,     label: 'Inicio' },
+  { to: '/teoria',     icon: FiBookOpen, label: 'Teoría' },
+  { to: '/referencia', icon: FiList,     label: 'Referencia' },
+  { to: '/componentes',icon: FiBox,      label: 'Componentes' },
+  { to: '/hooks',      icon: FiCode,     label: 'Hooks' },
+  { to: '/practicas',  icon: FiActivity, label: 'Prácticas' },
+  { to: '/ejercicios', icon: FiAward,    label: 'Desafíos' },
+  { to: '/peticiones', icon: FiGlobe,    label: 'Peticiones' },
+];
+
+export default function Layout() {
   return (
     <div className="app-container">
-      <aside className="sidebar glass-panel">
-        <div className="sidebar-header">
+
+      {/* ── Barra lateral ── */}
+      <aside className="sidebar glass-panel" aria-label="Navegación principal">
+
+        {/* Logo */}
+        <header className="sidebar-header">
           <div className="logo-container">
-            <div className="logo-icon"></div>
+            <div className="logo-icon" aria-hidden="true" />
             <h2>React<span className="text-gradient">Pro</span></h2>
           </div>
-        </div>
-        
+          <p className="sidebar-subtitle">Portafolio de Prácticas</p>
+        </header>
+
+        {/* Navegación */}
         <nav className="sidebar-nav">
-          <NavLink to="/" className={({ isActive }) => `nav-item ${isActive ? 'active' : ''}`}>
-            <FiHome className="nav-icon" />
-            <span>Inicio</span>
-          </NavLink>
-          
-          <NavLink to="/componentes" className={({ isActive }) => `nav-item ${isActive ? 'active' : ''}`}>
-            <FiBox className="nav-icon" />
-            <span>Componentes</span>
-          </NavLink>
-          
-          <NavLink to="/hooks" className={({ isActive }) => `nav-item ${isActive ? 'active' : ''}`}>
-            <FiCode className="nav-icon" />
-            <span>Hooks</span>
-          </NavLink>
-          
-          <NavLink to="/practicas" className={({ isActive }) => `nav-item ${isActive ? 'active' : ''}`}>
-            <FiActivity className="nav-icon" />
-            <span>Prácticas</span>
-          </NavLink>
-          
-          <NavLink to="/peticiones" className={({ isActive }) => `nav-item ${isActive ? 'active' : ''}`}>
-            <FiGlobe className="nav-icon" />
-            <span>Peticiones</span>
-          </NavLink>
+          {NAV_LINKS.map(({ to, icon: Icon, label }) => (
+            <NavLink
+              key={to}
+              to={to}
+              end={to === '/'}
+              className={({ isActive }) => `nav-item${isActive ? ' nav-item--active' : ''}`}
+            >
+              <Icon className="nav-icon" aria-hidden="true" />
+              <span>{label}</span>
+            </NavLink>
+          ))}
         </nav>
-        
-        <div className="sidebar-footer">
+
+        {/* Perfil */}
+        <footer className="sidebar-footer">
           <div className="user-profile">
-            <div className="avatar">D</div>
+            <div className="user-avatar" aria-label="Avatar de DaniDev">D</div>
             <div className="user-info">
               <span className="user-name">DaniDev</span>
               <span className="user-role">Frontend Pro</span>
             </div>
           </div>
-        </div>
+        </footer>
       </aside>
-      
+
+      {/* ── Contenido principal ── */}
       <main className="main-content animate-fade-in">
         <Outlet />
       </main>
     </div>
   );
 }
-
-export default Layout;
