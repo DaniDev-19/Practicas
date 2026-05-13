@@ -18,12 +18,12 @@
         "icon": [
             {
                 "title": "GitHub",
-                "url": "https://github.com/tuusuario",
+                "url": "https://github.com",
                 "icon": "FaGithub"
             },
             {
                 "title": "LinkedIn",
-                "url": "https://linkedin.com/in/tuusuario",
+                "url": "https://linkedin.com",
                 "icon": "FaLinkedin"
             },
             {
@@ -33,7 +33,7 @@
             },
             {
                 "title": "Web",
-                "url": "https://tusitio.dev/",
+                "url": "https://danijdev.zymtaxis.com/",
                 "icon": "FaGlobe"
             }
         ]

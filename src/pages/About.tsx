@@ -1,8 +1,10 @@
+import '../app.css'
 function About () {
     return (
-        <main>
-            <div>
-                <h2>hola aqui About</h2>
+        <main className="grillaa">
+            <div className="hero">
+                <h2>¿Alguna duda con react?</h2>
+                <span>no te preocupes aqui aprenderas sobre esta hermosa tecnología</span>
             </div>
         </main>
     );

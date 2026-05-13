@@ -1,9 +1,13 @@
 import { NavLink } from 'react-router-dom';
-import style from '../styles/header.module.css';
-
+import style from '../styles/header.module.css'
+import icon from './Icons';
 function Header() {
     return (
         <nav className={style.navBar}>
+            <div className='logo-container'>
+                <img src={icon.react} alt="Icono React.js" className="logo"/>
+                <h2>React.js</h2>
+            </div>
             <ul>
                 <li>
                     <NavLink

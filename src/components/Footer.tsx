@@ -47,9 +47,9 @@ function Footer () {
                 <h4>Tecnología y Contacto</h4>
                 <div className={style.filaIconos}>
                     {icon.map((item) => (
-                    <a key={item.title} href={item.url} target="_blank" rel="noopener noreferrer">
+                    <Link key={item.title} to={item.url} target="_blank" rel="noopener noreferrer">
                         {iconMap[item.icon as keyof typeof iconMap]}
-                    </a>
+                    </Link>
                     ))}
                 </div>
             </div>
