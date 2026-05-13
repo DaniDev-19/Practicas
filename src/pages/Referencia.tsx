@@ -1,9 +1,3 @@
-/**
- * Referencia.tsx
- * Página de referencia técnica: todos los hooks de React + métodos de Arrays.
- * Cada elemento usa las clases CSS de teoria.css para consistencia visual.
- */
-
 import { FiAnchor, FiList, FiInfo, FiZap, FiAlertTriangle } from 'react-icons/fi';
 import '../styles/teoria.css';
 

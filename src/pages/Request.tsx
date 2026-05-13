@@ -1,10 +1,3 @@
-/**
- * Request.tsx
- * Galería de prácticas de consumo de APIs y peticiones HTTP.
- * Incluye: Fetch con loading/error, componente propio con paginación
- * y buscador de usuarios (Buscador.tsx) con useMemo y API externa.
- */
-
 import { useState, useEffect } from 'react';
 import { FiDownloadCloud, FiUser, FiMail, FiPhone } from 'react-icons/fi';
 

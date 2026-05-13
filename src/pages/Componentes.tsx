@@ -1,9 +1,3 @@
-/**
- * Componentes.tsx
- * Galería visual de todos los componentes UI del proyecto.
- * Incluye componentes propios del usuario y la librería /ui creada en este proyecto.
- */
-
 import { useState } from 'react';
 import { FiShoppingCart, FiHeart, FiShare2, FiTrash2, FiEdit, FiSave } from 'react-icons/fi';
 
@@ -130,9 +124,9 @@ export default function Componentes() {
           {showAlerts ? (
             <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
               <Alert type="success" title="¡Éxito!" message="El componente se creó correctamente." />
-              <Alert type="error"   title="Error"   message="No se pudo conectar con el servidor." />
-              <Alert type="warning" title="Aviso"   message="Tu sesión expirará en 5 minutos." />
-              <Alert type="info"    title="Info"    message="Hay una nueva versión disponible." closeable={false} />
+              <Alert type="error" title="Error" message="No se pudo conectar con el servidor." />
+              <Alert type="warning" title="Aviso" message="Tu sesión expirará en 5 minutos." />
+              <Alert type="info" title="Info" message="Hay una nueva versión disponible." closeable={false} />
             </div>
           ) : (
             <div style={{ textAlign: 'center', padding: '1.5rem' }}>
@@ -158,16 +152,16 @@ export default function Componentes() {
               value={selectVal}
               onChange={setSelectVal}
               options={[
-                { value: 'react',   label: 'React' },
-                { value: 'vue',     label: 'Vue.js' },
+                { value: 'react', label: 'React' },
+                { value: 'vue', label: 'Vue.js' },
                 { value: 'angular', label: 'Angular' },
-                { value: 'svelte',  label: 'Svelte' },
-                { value: 'solid',   label: 'SolidJS' },
+                { value: 'svelte', label: 'Svelte' },
+                { value: 'solid', label: 'SolidJS' },
               ]}
             />
             {selectVal && (
               <p style={{ color: 'var(--accent-primary)', fontWeight: 500 }}>
-                ✅ Seleccionaste: <strong>{selectVal}</strong>
+                Seleccionaste: <strong>{selectVal}</strong>
               </p>
             )}
           </div>
@@ -226,7 +220,7 @@ export default function Componentes() {
             {[
               { label: 'Correo Electrónico', type: 'email', placeholder: 'ejemplo@correo.com' },
               { label: 'Contraseña', type: 'password', placeholder: '••••••••' },
-              { label: 'Nombre Completo', type: 'text', placeholder: 'Daniel Dev' },
+              { label: 'Nombre Completo', type: 'text', placeholder: 'Dani Dev' },
             ].map(({ label, type, placeholder }) => (
               <div key={label} style={{ display: 'flex', flexDirection: 'column', gap: '0.4rem' }}>
                 <label style={{ fontSize: '0.9rem', color: 'var(--text-secondary)' }}>{label}</label>
@@ -275,11 +269,11 @@ export default function Componentes() {
         >
           <div style={{ display: 'flex', gap: '1.5rem', flexWrap: 'wrap', alignItems: 'center' }}>
             {[
-              { Icon: FiHeart,        name: 'FiHeart' },
-              { Icon: FiShare2,       name: 'FiShare2' },
-              { Icon: FiTrash2,       name: 'FiTrash2' },
-              { Icon: FiEdit,         name: 'FiEdit' },
-              { Icon: FiSave,         name: 'FiSave' },
+              { Icon: FiHeart, name: 'FiHeart' },
+              { Icon: FiShare2, name: 'FiShare2' },
+              { Icon: FiTrash2, name: 'FiTrash2' },
+              { Icon: FiEdit, name: 'FiEdit' },
+              { Icon: FiSave, name: 'FiSave' },
               { Icon: FiShoppingCart, name: 'FiShoppingCart' },
             ].map(({ Icon, name }, i) => (
               <Tooltip key={i} text={name} position="top">

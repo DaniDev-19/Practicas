@@ -1,9 +1,3 @@
-/**
- * Teoria.tsx
- * Página de teoría profunda sobre React, JS, TS y Vite.
- * Incluye: ¿Qué es React?, JS vs TS, React puro vs Vite, Q&A interactivo.
- */
-
 import { useState } from 'react';
 import { FiChevronDown, FiHelpCircle, FiLayers, FiShield, FiZap, FiCheckCircle, FiInfo, FiBox, FiBookOpen, FiCpu } from 'react-icons/fi';
 import { SiReact, SiJavascript, SiTypescript } from 'react-icons/si';

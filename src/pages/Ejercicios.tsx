@@ -1,16 +1,11 @@
-/**
- * Ejercicios.tsx
- * Módulo de desafíos lógicos y técnicos con sistema de puntuación y persistencia.
- */
-
 import { useState, useEffect } from 'react';
-import { 
-  FiAward, 
-  FiClock, 
-  FiCheckCircle, 
-  FiXCircle, 
-  FiRotateCcw, 
-  FiChevronRight 
+import {
+  FiAward,
+  FiClock,
+  FiCheckCircle,
+  FiXCircle,
+  FiRotateCcw,
+  FiChevronRight
 } from 'react-icons/fi';
 import '../styles/ejercicios.css';
 
@@ -130,10 +125,10 @@ export default function Ejercicios() {
       completedQuizzes: stats.completedQuizzes + 1,
       lastScore: finalScore,
       history: [
-        { 
-          date: new Date().toLocaleString(), 
-          score: finalScore, 
-          total: QUESTIONS.length 
+        {
+          date: new Date().toLocaleString(),
+          score: finalScore,
+          total: QUESTIONS.length
         },
         ...stats.history.slice(0, 4) // Mantener últimos 5
       ]
@@ -182,7 +177,7 @@ export default function Ejercicios() {
       </header>
 
       <div className="quiz-container">
-        
+
         {/* ── Dashboard de Stats ── */}
         <section className="stats-banner">
           <div className="stat-box">

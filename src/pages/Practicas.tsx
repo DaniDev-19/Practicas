@@ -1,9 +1,3 @@
-/**
- * Practicas.tsx
- * Galería de prácticas reales: CRUD, gestores de tareas y lógica interactiva.
- * Cada componente va dentro de un ShowcaseCard con descripción técnica.
- */
-
 import { useState } from 'react';
 import { FiCheck, FiTrash2, FiPlus } from 'react-icons/fi';
 
@@ -142,7 +136,6 @@ export default function Practicas() {
         >
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '1rem' }}>
             <Multiplication count="Tabla del 3" mult={3} />
-            {/* <Multiplication count="Tabla del 7" mult={7} /> */}
             <Multiplication count="Tabla del 12" mult={12} />
           </div>
         </ShowcaseCard>

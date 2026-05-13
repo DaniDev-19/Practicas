@@ -1,17 +1,12 @@
-/**
- * Home.tsx
- * Página de inicio — presentación del proyecto y navegación a módulos.
- */
-
-import { 
-  FiCode, 
-  FiArrowRight, 
-  FiBookOpen, 
-  FiList, 
-  FiBox, 
-  FiAnchor, 
-  FiCpu, 
-  FiAward 
+import {
+  FiCode,
+  FiArrowRight,
+  FiBookOpen,
+  FiList,
+  FiBox,
+  FiAnchor,
+  FiCpu,
+  FiAward
 } from 'react-icons/fi';
 import { Link } from 'react-router-dom';
 import '../styles/pages.css';
