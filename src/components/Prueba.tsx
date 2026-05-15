@@ -31,7 +31,6 @@ function Prueba({ title = '', paragraf = '' }: PruebaProps) {
   useEffect(() => {
     if (prueba >= 10 && !notified) {
       setNotified(true);
-      // Reemplazamos el alert() nativo con una notificación en pantalla
     } else if (prueba < 1) {
       alert('No puedes tener números negativos');
     }
@@ -59,7 +58,7 @@ function Prueba({ title = '', paragraf = '' }: PruebaProps) {
         {/* Botón */}
         {prueba >= 10 ? (
           <div style={{ textAlign: 'center', padding: '0.75rem', background: 'rgba(16,185,129,0.1)', border: '1px solid #10b981', borderRadius: '8px', color: '#34d399', fontWeight: 600 }}>
-            🎉 ¡Enhorabuena! Completaste los 10 clicks
+            ¡Enhorabuena! Completaste los 10 clicks
           </div>
         ) : (
           <button

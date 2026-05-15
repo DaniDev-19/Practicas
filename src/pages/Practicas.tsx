@@ -95,6 +95,7 @@ export default function Practicas() {
                   </span>
                   <button
                     onClick={() => deleteTask(task.id)}
+                    title="Eliminar"
                     style={{ background: 'none', border: 'none', cursor: 'pointer', color: 'var(--text-secondary)', display: 'flex', alignItems: 'center', transition: 'color 0.2s' }}
                     onMouseOver={e => (e.currentTarget.style.color = '#ef4444')}
                     onMouseOut={e => (e.currentTarget.style.color = 'var(--text-secondary)')}

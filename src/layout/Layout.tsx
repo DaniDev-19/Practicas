@@ -1,13 +1,14 @@
 import { NavLink, Outlet } from 'react-router-dom';
 import {
   FiHome, FiBox, FiCode, FiActivity,
-  FiGlobe, FiBookOpen, FiList, FiAward
+  FiGlobe, FiBookOpen, FiList, FiAward, FiInfo
 } from 'react-icons/fi';
 import '../index.css';
 import './Layout.css';
 
 const NAV_LINKS = [
   { to: '/',           icon: FiHome,     label: 'Inicio' },
+  { to: '/about',      icon: FiInfo,     label: 'Consejos y Tips' },
   { to: '/teoria',     icon: FiBookOpen, label: 'Teoría' },
   { to: '/referencia', icon: FiList,     label: 'Referencia' },
   { to: '/componentes',icon: FiBox,      label: 'Componentes' },

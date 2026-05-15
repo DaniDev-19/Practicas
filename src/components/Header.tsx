@@ -33,6 +33,17 @@ function Header() {
                 </li>
                 <li>
                     <NavLink
+                        to="/about"
+                        title='Consejos y Tips'
+                        className={({ isActive }) =>
+                            isActive ? `${style.link} ${style.active}` : style.link
+                        }
+                    >
+                        About
+                    </NavLink>
+                </li>
+                <li>
+                    <NavLink
                         to="/hooks"
                         title='Hooks y Proms'
                         className={({ isActive }) =>

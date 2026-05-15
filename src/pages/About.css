@@ -1,0 +1,105 @@
+.about-main {
+  padding: 2rem;
+  background: #f5f6fa;
+  min-height: 100vh;
+}
+
+.about-title {
+  text-align: center;
+  margin-bottom: 2rem;
+  color: #1a202c;
+  font-size: 2.2rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.about-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+  margin-bottom: 2rem;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.about-table th, .about-table td {
+  border: 1px solid #e0e0e0;
+  padding: 0.75rem 1rem;
+  text-align: left;
+}
+
+.about-table th {
+  background: #e3e8ee;
+  color: #1a202c;
+  font-weight: 600;
+}
+
+.about-btn {
+  background: linear-gradient(90deg, #3182ce 60%, #00bcd4 100%);
+  color: #fff;
+  border: none;
+  padding: 0.5rem 1.2rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background 0.2s, transform 0.2s;
+  box-shadow: 0 1px 4px rgba(49,130,206,0.08);
+}
+
+.about-btn:hover {
+  background: linear-gradient(90deg, #225ea8 60%, #0097a7 100%);
+  transform: translateY(-2px) scale(1.04);
+}
+
+.about-modal-overlay {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.about-modal {
+  background: #fff;
+  padding: 2rem 1.5rem 1.5rem 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.13);
+  max-width: 420px;
+  width: 100%;
+  position: relative;
+  animation: modalIn 0.2s;
+}
+@keyframes modalIn {
+  from { transform: scale(0.95); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+.about-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: transparent;
+  border: none;
+  font-size: 1.7rem;
+  color: #3182ce;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+.about-close:hover {
+  color: #00bcd4;
+}
+
+.about-code {
+  background: #f1f5f9;
+  color: #1a202c;
+  padding: 1rem;
+  border-radius: 6px;
+  font-size: 1rem;
+  margin-top: 1rem;
+  white-space: pre-wrap;
+  font-family: 'Fira Mono', 'Consolas', monospace;
+  border-left: 4px solid #3182ce;
+}

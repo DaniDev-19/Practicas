@@ -47,10 +47,14 @@ export default function Componentes() {
 
             {/* Botones con Tooltip */}
             <Tooltip text="Editar elemento" position="top">
-              <button className="btn-primary" style={{ background: '#6366f1', padding: '0.75rem' }}><FiEdit /></button>
+              <button 
+              title='hola'
+              className="btn-primary" style={{ background: '#6366f1', padding: '0.75rem' }}><FiEdit /></button>
             </Tooltip>
             <Tooltip text="Guardar cambios" position="top">
-              <button className="btn-primary" style={{ background: '#10b981', padding: '0.75rem' }}><FiSave /></button>
+              <button 
+              title='hola'
+              className="btn-primary" style={{ background: '#10b981', padding: '0.75rem' }}><FiSave /></button>
             </Tooltip>
             <Tooltip text="¡Cuidado! Elimina permanentemente" position="top">
               <button className="btn-primary" style={{ background: '#ef4444', padding: '0.75rem' }}><FiTrash2 /></button>
