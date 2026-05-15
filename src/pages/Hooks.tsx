@@ -1,16 +1,11 @@
-/**
- * Hooks.tsx
- * Galería de demos interactivas de los hooks más importantes de React.
- * Cada demo vive en un ShowcaseCard con descripción técnica.
- */
-
 import { useState, useEffect, useMemo } from 'react';
 import { FiPlus, FiMinus, FiRefreshCw } from 'react-icons/fi';
 
 import ShowcaseCard from '../components/ui/ShowcaseCard';
-import Contador  from '../components/Contador';
-import Contador2 from '../components/Contador2';
-import '../styles/pages.css';
+import Contador  from '../components/practicas/Contador/Contador';
+import Contador2 from '../components/practicas/Contador2/Contador2';
+import { Button } from '../components/ui/Button/Button';
+import '../styles/components/pages.css';
 
 export default function Hooks() {
   // ── useState ──
@@ -21,7 +16,7 @@ export default function Hooks() {
   const [isRunning, setIsRunning] = useState(true);
 
   useEffect(() => {
-    let id: number;
+    let id: any;
     if (isRunning) id = setInterval(() => setTime(new Date()), 1000);
     return () => clearInterval(id);
   }, [isRunning]);
@@ -54,36 +49,34 @@ export default function Hooks() {
         <ShowcaseCard
           title="useState — Contador básico"
           badge="useState"
-          description="El hook useState devuelve un par [valor, setter]. Cada llamada al setter provoca un re-render. El contador cambia de color según el signo: verde (positivo), rojo (negativo), gris (cero)."
+          description="El hook useState devuelve un par [valor, setter]. Cada llamada al setter provoca un re-render."
         >
           <div className="demo-block">
             <output className={`stat-display ${countColor}`} aria-live="polite">
               {count}
             </output>
-            <div className="btn-group" role="group" aria-label="Controles del contador">
-              <button
+            <div className="flex gap-md" role="group" aria-label="Controles del contador">
+              <Button
                 onClick={() => setCount(c => c - 1)}
-                className="btn-primary"
-                style={{ background: 'var(--accent-danger)' }}
+                variant="danger"
                 aria-label="Decrementar"
               >
                 <FiMinus />
-              </button>
-              <button
+              </Button>
+              <Button
                 onClick={() => setCount(0)}
-                className="btn-ghost btn"
+                variant="ghost"
                 aria-label="Resetear a cero"
               >
                 Reset
-              </button>
-              <button
+              </Button>
+              <Button
                 onClick={() => setCount(c => c + 1)}
-                className="btn-primary"
-                style={{ background: 'var(--accent-success)' }}
+                variant="success"
                 aria-label="Incrementar"
               >
                 <FiPlus />
-              </button>
+              </Button>
             </div>
           </div>
         </ShowcaseCard>
@@ -92,31 +85,27 @@ export default function Hooks() {
         <ShowcaseCard
           title="useEffect — Reloj en tiempo real"
           badge="useEffect"
-          badgeColor="#a855f7"
-          description="useEffect recibe una función de efecto y un array de dependencias. Crea un setInterval cuando isRunning es true. La función de limpieza (return) cancela el intervalo para evitar memory leaks al desmontar."
+          description="useEffect recibe una función de efecto y un array de dependencias. Crea un setInterval cuando isRunning es true."
         >
           <div className="demo-block">
-            <div>
+            <div className="text-center">
               <p
                 className={`clock-time ${isRunning ? 'clock-time--running' : 'clock-time--paused'}`}
                 aria-live="polite"
-                aria-label="Hora actual"
               >
                 {time.toLocaleTimeString()}
               </p>
-              <p className="clock-date text-center">
+              <p className="clock-date">
                 {time.toLocaleDateString(undefined, { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })}
               </p>
             </div>
-            <button
+            <Button
               onClick={() => setIsRunning(r => !r)}
-              className="btn-primary"
-              style={{ background: isRunning ? 'var(--accent-danger)' : 'var(--accent-success)' }}
-              aria-label={isRunning ? 'Detener reloj' : 'Reanudar reloj'}
+              variant={isRunning ? 'danger' : 'success'}
             >
               <FiRefreshCw className={isRunning ? 'spin' : ''} />
               {isRunning ? 'Detener' : 'Reanudar'}
-            </button>
+            </Button>
           </div>
         </ShowcaseCard>
 
@@ -124,8 +113,7 @@ export default function Hooks() {
         <ShowcaseCard
           title="useMemo — Tabla de multiplicar"
           badge="useMemo"
-          badgeColor="#f59e0b"
-          description="useMemo memoriza el resultado de una función costosa. Solo la recalcula cuando cambian las dependencias (aquí, numMemo). Ideal para filtros, ordenaciones o cálculos que no deben repetirse en cada render."
+          description="useMemo memoriza el resultado de una función costosa. Solo la recalcula cuando cambian las dependencias."
         >
           <div className="demo-block demo-block--row" style={{ gap: '2rem' }}>
             <div className="mult-controls">
@@ -155,9 +143,8 @@ export default function Hooks() {
         {/* ── Contador.tsx (usuario) ── */}
         <ShowcaseCard
           title="Contador.tsx — Persistencia con localStorage"
-          badge="Tu código"
-          badgeColor="#10b981"
-          description="Usa useState con función inicializadora para leer el valor guardado en localStorage al montarse. Un useEffect sincroniza cada cambio con el storage, haciendo que el valor persista tras recargar la página."
+          badge="Práctica"
+          description="Usa useState con función inicializadora para leer el valor guardado en localStorage al montarse."
         >
           <Contador />
         </ShowcaseCard>
@@ -165,9 +152,8 @@ export default function Hooks() {
         {/* ── Contador2.tsx (usuario) ── */}
         <ShowcaseCard
           title="Contador2.tsx — Estado tipo string"
-          badge="Tu código"
-          badgeColor="#10b981"
-          description="Demuestra que useState no se limita a números: aquí el estado es un string. Un botón lo fija en 'yuli' y otro lo resetea a cadena vacía — un ejemplo claro de toggle de estado con strings."
+          badge="Práctica"
+          description="Demuestra que useState no se limita a números: aquí el estado es un string."
         >
           <Contador2 />
         </ShowcaseCard>

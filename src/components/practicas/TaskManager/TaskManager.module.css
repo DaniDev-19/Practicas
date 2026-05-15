@@ -1,0 +1,111 @@
+.container {
+  display: flex;
+  flex-direction: column;
+}
+
+.stats {
+  display: flex;
+  justify-content: flex-end;
+  gap: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+.statItem {
+  text-align: center;
+}
+
+.statValue {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.statCompleted {
+  color: var(--accent-success);
+}
+
+.statLabel {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+}
+
+.form {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.input {
+  flex: 1;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.empty {
+  text-align: center;
+  color: var(--text-secondary);
+  padding: 2rem;
+}
+
+.taskItem {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  background: var(--bg-primary);
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-glass);
+  transition: border-color var(--transition-fast);
+}
+
+.taskItem:hover {
+  border-color: rgba(255, 255, 255, 0.15);
+}
+
+.checkbox {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border: 2px solid var(--text-secondary);
+  background: transparent;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s;
+  flex-shrink: 0;
+}
+
+.checkboxCompleted {
+  border: none;
+  background: var(--accent-success);
+}
+
+.taskText {
+  flex: 1;
+  color: white;
+  transition: all 0.2s;
+}
+
+.taskTextCompleted {
+  text-decoration: line-through;
+  color: var(--text-secondary);
+}
+
+.deleteBtn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--text-secondary);
+  display: flex;
+  align-items: center;
+  transition: color 0.2s;
+}
+
+.deleteBtn:hover {
+  color: var(--accent-danger);
+}

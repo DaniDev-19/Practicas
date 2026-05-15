@@ -7,17 +7,10 @@ import {
   FiRotateCcw,
   FiChevronRight
 } from 'react-icons/fi';
-import '../styles/ejercicios.css';
-
-/* ── Tipos ───────────────────────────────────────────────── */
-interface Question {
-  id: number;
-  question: string;
-  code?: string;
-  options: string[];
-  correct: number;
-  difficulty: 'fácil' | 'medio' | 'difícil';
-}
+import { Button } from '../components/ui/Button/Button';
+import { QuizStats } from '../components/ejercicios/QuizStats/QuizStats';
+import { QUESTIONS } from '../data/ejercicios';
+import '../styles/components/ejercicios.css';
 
 interface UserStats {
   totalPoints: number;
@@ -26,83 +19,13 @@ interface UserStats {
   history: Array<{ date: string; score: number; total: number }>;
 }
 
-/* ── Banco de Preguntas ───────────────────────────────────── */
-const QUESTIONS: Question[] = [
-  {
-    id: 1,
-    question: '¿Qué devolverá el siguiente código?',
-    code: 'const x = [1, 2, 3];\nconst y = x;\ny.push(4);\nconsole.log(x.length);',
-    options: ['3', '4', 'undefined', 'Error'],
-    correct: 1,
-    difficulty: 'fácil',
-  },
-  {
-    id: 2,
-    question: 'En React, ¿qué sucede si actualizas el estado con el mismo valor actual?',
-    options: [
-      'React hace un re-render de todos modos',
-      'React ignora la actualización y no hace re-render',
-      'React lanza un error en modo estricto',
-      'El componente se desmonta'
-    ],
-    correct: 1,
-    difficulty: 'medio',
-  },
-  {
-    id: 3,
-    question: '¿Cuál es el propósito principal de React.memo()?',
-    options: [
-      'Memorizar el valor de una variable costosa',
-      'Evitar re-renders innecesarios de un componente si sus props no cambian',
-      'Guardar el estado en el almacenamiento local',
-      'Optimizar las peticiones a la API'
-    ],
-    correct: 1,
-    difficulty: 'medio',
-  },
-  {
-    id: 4,
-    question: '¿Qué imprimirá este código?',
-    code: 'console.log(typeof NaN);',
-    options: ['"NaN"', '"number"', '"undefined"', '"object"'],
-    correct: 1,
-    difficulty: 'fácil',
-  },
-  {
-    id: 5,
-    question: '¿Cuál es el orden correcto de ejecución en un useEffect sin dependencias?',
-    options: [
-      'Render -> Effect -> Cleanup',
-      'Effect -> Render -> Cleanup',
-      'Render -> Cleanup -> Effect',
-      'Cleanup -> Render -> Effect'
-    ],
-    correct: 0,
-    difficulty: 'difícil',
-  },
-  {
-    id: 6,
-    question: '¿Qué hace el método Object.freeze()?',
-    options: [
-      'Evita que se añadan nuevas propiedades',
-      'Evita que se borren propiedades existentes',
-      'Evita que se cambien los valores de las propiedades',
-      'Todas las anteriores'
-    ],
-    correct: 3,
-    difficulty: 'medio',
-  }
-];
-
 export default function Ejercicios() {
-  // ── Estados del Quiz ──
   const [currentIndex, setCurrentIndex] = useState(0);
   const [score, setScore] = useState(0);
   const [showResult, setShowResult] = useState(false);
   const [selectedOption, setSelectedOption] = useState<number | null>(null);
   const [isAnswered, setIsAnswered] = useState(false);
 
-  // ── Estados de Persistencia ──
   const [stats, setStats] = useState<UserStats>({
     totalPoints: 0,
     completedQuizzes: 0,
@@ -110,7 +33,6 @@ export default function Ejercicios() {
     history: []
   });
 
-  // ── Cargar estadísticas al montar ──
   useEffect(() => {
     const saved = localStorage.getItem('reactpro_logic_stats');
     if (saved) {
@@ -118,7 +40,6 @@ export default function Ejercicios() {
     }
   }, []);
 
-  // ── Guardar estadísticas ──
   const saveStats = (finalScore: number) => {
     const newStats: UserStats = {
       totalPoints: stats.totalPoints + finalScore,
@@ -130,14 +51,13 @@ export default function Ejercicios() {
           score: finalScore,
           total: QUESTIONS.length
         },
-        ...stats.history.slice(0, 4) // Mantener últimos 5
+        ...stats.history.slice(0, 4)
       ]
     };
     setStats(newStats);
     localStorage.setItem('reactpro_logic_stats', JSON.stringify(newStats));
   };
 
-  // ── Manejadores ──
   const handleOptionClick = (index: number) => {
     if (isAnswered) return;
     setSelectedOption(index);
@@ -177,22 +97,13 @@ export default function Ejercicios() {
       </header>
 
       <div className="quiz-container">
-
-        {/* ── Dashboard de Stats ── */}
-        <section className="stats-banner">
-          <div className="stat-box">
-            <span className="stat-box__value">{stats.totalPoints}</span>
-            <span className="stat-box__label">Puntos Totales</span>
-          </div>
-          <div className="stat-box">
-            <span className="stat-box__value">{stats.completedQuizzes}</span>
-            <span className="stat-box__label">Desafíos</span>
-          </div>
-          <div className="stat-box">
-            <span className="stat-box__value">{stats.lastScore}/{QUESTIONS.length}</span>
-            <span className="stat-box__label">Último Score</span>
-          </div>
-        </section>
+        
+        <QuizStats 
+          totalPoints={stats.totalPoints}
+          completedQuizzes={stats.completedQuizzes}
+          lastScore={stats.lastScore}
+          totalQuestions={QUESTIONS.length}
+        />
 
         {!showResult ? (
           <section className="exercise-card">
@@ -246,10 +157,10 @@ export default function Ejercicios() {
 
             {isAnswered && (
               <div style={{ marginTop: '2rem', display: 'flex', justifyContent: 'flex-end' }}>
-                <button className="btn-primary" onClick={nextQuestion}>
+                <Button onClick={nextQuestion}>
                   {currentIndex === QUESTIONS.length - 1 ? 'Finalizar' : 'Siguiente'}
                   <FiChevronRight />
-                </button>
+                </Button>
               </div>
             )}
           </section>
@@ -260,13 +171,13 @@ export default function Ejercicios() {
             <p className="text-secondary" style={{ fontSize: '1.1rem', marginBottom: '2rem' }}>
               Has obtenido una puntuación de <strong>{score} sobre {QUESTIONS.length}</strong>.
             </p>
-            <button className="btn-primary" onClick={resetQuiz}>
+            <Button variant="primary" onClick={resetQuiz}>
               <FiRotateCcw /> Intentar de nuevo
-            </button>
+            </Button>
           </section>
         )}
 
-        {/* ── Historial de Persistencia ── */}
+        {/* ── Historial ── */}
         <section className="history-section">
           <h3 style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '1.25rem' }}>
             <FiClock /> Historial Reciente

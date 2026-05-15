@@ -1,0 +1,42 @@
+.button {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--gradient-primary);
+  color: white;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4), var(--shadow-glow);
+  z-index: 100;
+  animation: slideUp 0.3s ease-out;
+  font-size: 1.25rem;
+  transition: transform var(--transition-base), opacity var(--transition-base);
+}
+
+.button:hover {
+  transform: translateY(-5px);
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 900px) {
+  .button {
+    bottom: 1.5rem;
+    right: 1.5rem;
+  }
+}

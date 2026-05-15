@@ -1,0 +1,90 @@
+.glass-panel {
+  background: var(--bg-glass);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--border-glass);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.card {
+  padding: var(--space-lg);
+  border-radius: var(--radius-lg);
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-glass);
+  transition: transform var(--transition-base), box-shadow var(--transition-base);
+}
+
+.card--hover:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-glow);
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 3px 10px;
+  border-radius: 99px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.badge--accent { background: rgba(99, 102, 241, 0.12); color: #818cf8; border: 1px solid rgba(99, 102, 241, 0.25); }
+.badge--success { background: rgba(16, 185, 129, 0.12); color: #34d399; border: 1px solid rgba(16, 185, 129, 0.25); }
+.badge--warning { background: rgba(245, 158, 11, 0.12); color: #fbbf24; border: 1px solid rgba(245, 158, 11, 0.25); }
+.badge--danger { background: rgba(239, 68, 68, 0.12); color: #f87171; border: 1px solid rgba(239, 68, 68, 0.25); }
+.badge--info { background: rgba(59, 130, 246, 0.12); color: #60a5fa; border: 1px solid rgba(59, 130, 246, 0.25); }
+
+.callout {
+  display: flex;
+  gap: var(--space-md);
+  padding: var(--space-md) var(--space-lg);
+  border-radius: var(--radius-md);
+  border-left: 3px solid;
+}
+
+.callout--info { background: rgba(59, 130, 246, 0.08); border-color: var(--accent-info); color: #93c5fd; }
+.callout--tip { background: rgba(16, 185, 129, 0.08); border-color: var(--accent-success); color: #6ee7b7; }
+.callout--warning { background: rgba(245, 158, 11, 0.08); border-color: var(--accent-warning); color: #fcd34d; }
+.callout--danger { background: rgba(239, 68, 68, 0.08); border-color: var(--accent-danger); color: #fca5a5; }
+
+.divider {
+  height: 1px;
+  background: var(--border-glass);
+  margin: var(--space-lg) 0;
+}
+
+.page-container {
+  max-width: 1100px;
+}
+
+.page-header {
+  margin-bottom: var(--space-xl);
+}
+
+.page-title {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.page-description {
+  color: var(--text-secondary);
+  font-size: 1.05rem;
+}
+
+.section {
+  margin-bottom: var(--space-2xl);
+}
+
+.section-title {
+  font-size: 1.25rem;
+  margin-bottom: var(--space-md);
+  padding-bottom: var(--space-sm);
+  border-bottom: 1px solid var(--border-glass);
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
